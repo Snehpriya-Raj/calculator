@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body {
+            font-size: 30px;
+            font-weight: 600;
+            /* background-color: #3B4664; */
+            background: #c8c8c890;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        section {
+            /* background-color: #181F32; */
+            margin-top: 2%;
+            width: 40%;
+            height: 400px;
+            display:flex;
+            justify-content: center;
+        }
+        
+        .display{
+            margin: 8% 0;
+            width: 295px;
+            padding: 25px 0px;
+            border-radius: 12px;
+            border: none;
+            font-size: 25px;
+            font-weight: 900;
+            font-family: cursive;
+            box-shadow: inset -3px -3px 5px #ffffff90,
+                        inset  3px 3px 15px #00000040;
+        }
+        ::placeholder{
+            text-align: center;
+            color: #dcb689;
+        }
+        button {
+            background-color: #EAE3DB;
+            padding: 25px;
+            border-radius: 50%;
+            border: none;
+            margin: 5px;
+            font-size: 18px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 800;
+            box-shadow: inset 3px 3px 15px #ffffff90,
+                        inset -3px -3px 15px #00000070;
+            transition: all .3s linear;            
+        }
+        button:hover{
+            box-shadow: inset -3px -3px 15px #ffffff90,
+                        inset  3px 3px 15px #00000040;
+        }
+        .opr{
+            color: rgb(240, 78, 105);
+        }
+        .reset {
+            background-color: #9db4f3;
+            font-family: cursive;
+            color: #fff;
+        }
+
+        .total {
+            padding: 25px 140px;
+            border-radius: 12px;
+            margin-top: 10px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 900;
+            background-color: #e5e5e5; 
+            /* background-color: #181F32;  */
+            color: #2372d3;
+            box-shadow:  -3px -3px 5px #ffffff90,
+                          3px 3px 15px #00000090;
+            transition: all .3s ease;
+        }
+        .total:hover{
+             box-shadow:  -3px -3px 5px #ffffff90,
+                           3px 3px 15px #00000030;             
+        }
+        
+        
+    </style>
+</head> 
+
+<body>
+
+    <section>
+        <div class="calculator">
+            <input type="text" class="display" id="display" disabled placeholder="WELCOME">
+        <div>
+
+        <div class="rows">
+            <button onclick=" updateCalculation('7');">
+                7
+            </button>
+
+            <button onclick="updateCalculation('8');">
+                8
+            </button>
+
+            <button onclick="updateCalculation('9');">
+                9
+            </button>
+
+            <button class="opr" onclick="updateCalculation('+');">
+                +
+            </button>
+
+        </div>
+
+
+        <div class="rows">
+            <button onclick="updateCalculation('4');">
+                4
+            </button>
+
+            <button onclick="updateCalculation('5');">
+                5
+            </button>
+
+            <button onclick="updateCalculation('6');">
+                6
+            </button>
+
+            <button class="opr" onclick="updateCalculation('-');">
+                -
+            </button>
+        </div>
+
+
+        <div class="rows">
+            <button onclick="updateCalculation('1');">
+                1
+            </button>
+
+            <button onclick="updateCalculation('2');">
+                2
+            </button>
+
+            <button onclick="updateCalculation('3');">
+                3
+            </button>
+
+            <button class="opr" onclick="updateCalculation('*');">
+                *
+            </button>
+
+        </div>
+
+
+        <div class="rows">
+            <button onclick="updateCalculation('0');">
+                0
+            </button>
+            
+            <button class="reset" onclick="calculation = '';
+                        // console.log(calculation);            
+                    document.getElementById('display').value = calculation;">
+                C
+            </button>
+
+            <button class="opr" onclick="updateCalculation('%')">
+                %
+            </button>
+
+            <button class="opr" onclick="updateCalculation('/');">
+                /
+            </button>
+
+        </div>
+
+
+        <div class="rows">
+        <button class="total" onclick="calculation = eval(calculation);
+        document.getElementById('display').value = calculation;">
+            =
+        </button>
+
+        </div>
+
+            <!-- // Note: eval() takes a string and runs it as code.
+                        // Avoid using eval() in real world projects since
+                    // it can potentially be given harmful code to run.
+                    // Only use eval() for learning purposes. -->
+            
+            <!-- for e.g  (see in script)-->
+
+
+    </section>
+
+
+    <!-- JS -->
+    <script>
+
+        let calculation = "";
+
+        // function updateCalculation(value){
+        //      calculation += value;
+        //     console.log(calculation);
+        // }
+
+        function updateCalculation(value) {
+            calculation += value;
+            document.getElementById('display').value += value;
+        }
+
+
+
+        // evaluate -> eval() e.g:-
+        // console.log(2+2);
+        // console.log("2+2");
+        // console.log(eval(2+2));
+    </script>
+</body>
+
+</html>
